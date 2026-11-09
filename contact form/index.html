@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pliant:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap');
+
+        :root {
+            --pt-serif: 'PT Serif', serif;
+            --homemade-apple: 'Homemade Apple', cursive;
+            --lime: 'Limelight', sans-serif;
+            --plaint: "Pliant", sans-serif;
+            --nunito: 'Nunito', sans-serif;
+        }
+
+        @font-face {
+            font-family: bankgothic;
+            src: url(./bankgothic-md-bt/bank\ gothic\ medium\ bt.ttf) format('truetype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            font-size: 20px;
+        }
+
+        .contact {
+            position: relative;
+            width: 100%;
+            padding: 6rem 3vw;
+            background: linear-gradient(135deg, #1e1c5e 0%, #23235b 34%, #311219 100%);
+            overflow: hidden;
+            color: #f4f5ff;
+        }
+
+        .contact-bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.55;
+            pointer-events: none;
+        }
+
+        .contact-bg-circle--top {
+            width: 320px;
+            height: 320px;
+            top: -120px;
+            left: -100px;
+            background: radial-gradient(circle, rgba(255, 143, 0, 0.7) 0%, rgba(255, 143, 0, 0.05) 55%, transparent 100%);
+        }
+
+        .contact-bg-circle--bottom {
+            width: 420px;
+            height: 420px;
+            bottom: -150px;
+            right: -140px;
+            background: radial-gradient(circle, rgba(6, 86, 196, 0.7) 0%, rgba(6, 86, 196, 0.04) 55%, transparent 100%);
+        }
+
+        .contact-wrapper {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 2.5rem;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .contact-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.6rem;
+            z-index: 1;
+        }
+
+        .contact-label {
+            display: inline-block;
+            font-family: var(--pt-serif);
+            font-size: 0.95rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #f9b36b;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.55rem 1rem;
+            border-radius: 999px;
+        }
+
+        .contact-copy h2 {
+            font-family: var(--plaint);
+            font-size: 3rem;
+            line-height: 1.4;
+            max-width: 620px;
+            color: #ffffff;
+        }
+
+        .contact-copy h2 span {
+            background: linear-gradient(to right, #ff0202 10%, #104a7a 55%, #010b36);
+            padding: 0.5rem 0.8rem;
+            border-radius: 40px;
+            font-family: 'bankgothic', Arial, Helvetica, sans-serif;
+            box-shadow: 0px 2px 25px rgba(255, 255, 255, 0.329);
+        }
+
+        .contact-copy p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 620px;
+            font-family: var(--plaint);
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .contact-btn {
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 999px;
+            padding: 0.95rem 1.8rem;
+            font-family: var(--pt-serif);
+            font-size: 0.95rem;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+
+        .contact-btn--outline {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-btn--primary {
+            background: linear-gradient(135deg, #ff741f 0%, #f01d3d 100%);
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 18px 38px rgba(240, 29, 61, 0.22);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .contact-form {
+            position: relative;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 28px;
+            backdrop-filter: blur(18px);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+            padding: 2.4rem;
+            display: grid;
+            gap: 1rem;
+            z-index: 1;
+        }
+
+        .form-row {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .form-row label {
+            color: rgba(255, 255, 255, 0.943);
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            font-family: var(--nunito);
+        }
+
+        .form-row input::placeholder,
+        textarea::placeholder {
+            color: #eaeaeadc;
+            font-family: var(--plaint);
+        }
+
+        .form-row input,
+        .form-row textarea {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            padding: 1rem 1.2rem;
+            font-family: var(--plaint);
+            font-size: 0.98rem;
+            outline: none;
+            transition: border 0.25s ease, transform 0.25s ease;
+        }
+
+        .form-row input:focus,
+        .form-row textarea:focus {
+            border-color: rgba(255, 255, 255, 0.45);
+            transform: translateY(-5px);
+        }
+
+        .form-row textarea {
+            min-height: 130px;
+            max-height: 230px;
+            resize: vertical;
+        }
+
+        .contact-submit {
+            margin-top: 0.5rem;
+            width: 100%;
+            border: none;
+            border-radius: 999px;
+            padding: 1rem 1.6rem;
+            font-family: var(--pt-serif);
+            font-size: 1rem;
+            letter-spacing: 0.08em;
+            background: linear-gradient(135deg, #ff741f 0%, #f01d3d 100%);
+            color: #ffffff;
+            cursor: pointer;
+            box-shadow: 0 16px 32px rgba(240, 29, 61, 0.22);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .contact-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 42px rgba(240, 29, 61, 0.28);
+        }
+
+        .contact-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .contact-submit.loading .spinner {
+            display: inline-block;
+        }
+
+        .contact-submit.loading .btn-text {
+            display: none;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 999;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(12px);
+            max-width: 400px;
+            color: #fff;
+            font-family: var(--plaint);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast.success {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+        }
+
+        .toast.error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        @media (max-width: 1040px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .contact {
+                padding: 5rem 2rem;
+            }
+
+            .contact-copy h2 {
+                font-size: 2.4rem;
+            }
+
+            .contact-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .contact {
+                padding: 5rem 1.2rem;
+            }
+
+            .contact-bg-circle--top {
+                width: 260px;
+                height: 260px;
+                top: -100px;
+                left: -80px;
+            }
+
+            .contact-bg-circle--bottom {
+                width: 320px;
+                height: 320px;
+                bottom: -120px;
+                right: -100px;
+            }
+
+            .contact-copy h2 {
+                font-size: 2rem;
+            }
+
+            .toast {
+                left: 16px;
+                right: 16px;
+                bottom: 16px;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="contact">
+        <div class="contact-bg-circle contact-bg-circle--top"></div>
+        <div class="contact-bg-circle contact-bg-circle--bottom"></div>
+        <div class="contact-wrapper">
+            <div class="contact-copy">
+                <span class="contact-label">Contact Us</span>
+                <h2>Connect With <span>Bronte</span> to Begin Your Franchise Setup</h2>
+                <p>Whether you're evaluating investment options or planning to launch a training studio, our team will
+                    guide you with accurate information and a clear roadmap.</p>
+                <div class="contact-actions">
+                    <button class="contact-btn contact-btn--outline">Download Info Kit</button>
+                    <button class="contact-btn contact-btn--primary">Talk to us on WhatsApp</button>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm" novalidate>
+                <div class="form-row">
+                    <label>Full Name</label>
+                    <input id="name" type="text" placeholder="Enter full name" />
+                </div>
+                <div class="form-row">
+                    <label>Email ID</label>
+                    <input id="email" type="email" placeholder="Enter Email ID" />
+                </div>
+                <div class="form-row">
+                    <label>Phone Number</label>
+                    <input id="phone" type="tel" placeholder="Enter Phone Number" />
+                </div>
+                <div class="form-row">
+                    <label>City</label>
+                    <input id="city" type="text" placeholder="Enter City" />
+                </div>
+                <div class="form-row form-row--message">
+                    <label>Message</label>
+                    <textarea id="message" placeholder="Enter Message"></textarea>
+                </div>
+                <button type="submit" class="contact-submit" id="submitBtn">
+                    <span class="btn-text">Submit Your Response</span>
+                    <div class="spinner"></div>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <div class="toast" id="toast">
+        <span id="toastMsg"></span>
+    </div>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toastMsg');
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const city = document.getElementById('city').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+                showToast('Please fill in all required fields', 'error');
+                return;
+            }
+            if (!email.includes('@') || !email.includes('.')) {
+                showToast('Please enter a valid email', 'error');
+                return;
+            }
+
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+
+            try {
+                const response = await fetch('/send', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        subject: 'Franchise Enquiry',
+                        phone: phone,
+                        city: city,
+                        message: message
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showToast('Message sent successfully!', 'success');
+                    form.reset();
+                } else {
+                    showToast(data.message || 'Something went wrong', 'error');
+                }
+            } catch (err) {
+                showToast('Server not running. Start server.py first!', 'error');
+            }
+
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+        });
+
+        function showToast(msg, type) {
+            toastMsg.textContent = msg;
+            toast.className = 'toast ' + type;
+            requestAnimationFrame(() => toast.classList.add('show'));
+            setTimeout(() => toast.classList.remove('show'), 5000);
+        }
+    </script>
+
+</body>
+
+</html>

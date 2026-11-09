@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Grid Mask Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #ffffff 0%, #f3f6f9 100%);
+            font-family: system-ui, -apple-system, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Container that holds the rotated layout */
+        .layout-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 550px;
+            height: 550px;
+        }
+
+        /* 5x5 Grid rotated by 45 degrees */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 12px; /* Spacing between the diamond cells */
+            width: 380px;
+            height: 380px;
+            transform: rotate(45deg);
+            transform-origin: center;
+        }
+
+        /* Individual cells - rounded corners & overflow clip */
+        .cell {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            background-color: #eaeaea;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                        box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Hover effect to pop out cells */
+        .cell:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            z-index: 10;
+        }
+
+        /* Background image container rotated back by -45 degrees */
+        .cell .bg-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 141.42%; /* Scale up by sqrt(2) to cover boundaries of the rotated cell */
+            height: 141.42%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            
+            /* Background configuration */
+            background-image: url('./bronte images/img/about/Police-light-bars.jpeg');
+            background-repeat: no-repeat;
+            
+            /* Scale background to cover the entire grid:
+               Grid diagonal = GridWidth * sqrt(2). Cell bg-image width = CellSize * sqrt(2).
+               Ratio = GridWidth / CellSize = 380 / 66.4 ≈ 5.7229 */
+            background-size: 572.29% 572.29%;
+            
+            /* Align background horizontally and vertically based on grid positions:
+               Offset multiplier = (CellSize + Gap) / (2 * (GridWidth - CellSize)) = 1 / 8 = 12.5% */
+            background-position: 
+                calc(50% + (var(--col) - var(--row)) * 12.5%) 
+                calc(50% + (var(--col) + var(--row) - 4) * 12.5%);
+            
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* Parallax hover zoom effect on the image */
+        .cell:hover .bg-image {
+            transform: translate(-50%, -50%) rotate(-45deg) scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout-container">
+        <div class="grid">
+            <!-- Row 0 -->
+            <div class="cell" style="--col: 0; --row: 0;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 1; --row: 0;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 2; --row: 0;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 3; --row: 0;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 4; --row: 0;"><div class="bg-image"></div></div>
+
+            <!-- Row 1 -->
+            <div class="cell" style="--col: 0; --row: 1;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 1; --row: 1;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 2; --row: 1;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 3; --row: 1;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 4; --row: 1;"><div class="bg-image"></div></div>
+
+            <!-- Row 2 -->
+            <div class="cell" style="--col: 0; --row: 2;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 1; --row: 2;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 2; --row: 2;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 3; --row: 2;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 4; --row: 2;"><div class="bg-image"></div></div>
+
+            <!-- Row 3 -->
+            <div class="cell" style="--col: 0; --row: 3;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 1; --row: 3;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 2; --row: 3;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 3; --row: 3;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 4; --row: 3;"><div class="bg-image"></div></div>
+
+            <!-- Row 4 -->
+            <div class="cell" style="--col: 0; --row: 4;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 1; --row: 4;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 2; --row: 4;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 3; --row: 4;"><div class="bg-image"></div></div>
+            <div class="cell" style="--col: 4; --row: 4;"><div class="bg-image"></div></div>
+        </div>
+    </div>
+
+</body>
+</html>

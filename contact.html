@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our products</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- **************************************************************************** Navbar ************************************************************************ -->
+    <nav>
+        <div class="nav-wrapper">
+            <div class="brand-logo">
+                <img src="./images/Bronte logo.png" alt="">
+            </div>
+
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <i class="ri-menu-3-line" id="menu-icon"></i>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <div class="responsive-nav-links">
+        <div class="menu-close">
+            <i class="ri-close-line" id="menu-close-icon"></i>
+        </div>
+        <div class="menu-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ********************************************************************** bronte contact ********************************************************* -->
+    <section class="contact">
+        <div class="contact-bg-circle contact-bg-circle--top"></div>
+        <div class="contact-bg-circle contact-bg-circle--bottom"></div>
+
+        <div class="contact-wrapper">
+            <div class="contact-copy">
+                <span class="contact-label">Contact Us</span>
+                <h2>Connect With <span>Bronte</span> to Begin Your Franchise Setup</h2>
+                <p>Whether you’re evaluating investment options or planning to launch a training studio, our team
+                    will
+                    guide you with accurate information and a clear roadmap.</p>
+                <div class="contact-actions">
+                    <button class="contact-btn contact-btn--outline">Download Info Kit</button>
+                    <button class="contact-btn contact-btn--primary">Talk to us on WhatsApp</button>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <div class="form-row">
+                    <label>Full Name</label>
+                    <input id="name" type="text" placeholder="Enter full name" />
+                </div>
+                <div class="form-row">
+                    <label>Email ID</label>
+                    <input id="email" type="email" placeholder="Enter Email ID" />
+                </div>
+                <div class="form-row">
+                    <label>Phone Number</label>
+                    <input id="phone" type="tel" placeholder="Enter Phone Number" />
+                </div>
+                <div class="form-row">
+                    <label>City</label>
+                    <input id="city" type="text" placeholder="Enter City" />
+                </div>
+                <div class="form-row form-row--message">
+                    <label>Message</label>
+                    <textarea id="message" placeholder="Enter Message"></textarea>
+                </div>
+                <button type="submit" class="contact-submit" onclick="sendMail()">Submit Your Response</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- **************************************************************** footer ******************************************************************* -->
+    <footer class="footer">
+        <div class="footer-card">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>Bronte</h3>
+                    <p>Bronte empowers teams to transform raw vision into bold, compelling experiences — making
+                        every
+                        brand feel premium, polished, and unforgettable.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="ri-x-line"></i></a>
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                        <a href="#"><i class="ri-linkedin-box-line"></i></a>
+                        <a href="#"><i class="ri-github-line"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <a href="#">Features</a>
+                        <a href="#">Pricing</a>
+                        <a href="#">Integrations</a>
+                        <a href="#">Changelog</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="#">Documentation</a>
+                        <a href="#">Tutorials</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Support</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="#">About</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Partners</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Bronte. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookies Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- *************************************************************************** Script files ******************************************************************************* -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./script/script.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "-1yeVMR9XSfdBGl8C",
+            });
+        })();
+    </script>
+</body>
+
+</html>
